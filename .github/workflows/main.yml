@@ -66,11 +66,6 @@ jobs:
         with:
           java-version: 11
 
-      - name: SonarCloud Scan
-        run: ./gradlew app:sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   package:
     needs: [static-code-analysis]
     name: Generate APK
